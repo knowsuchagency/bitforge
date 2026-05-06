@@ -1,0 +1,28 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Type — Code</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body { margin:0; padding:0; }
+  body { background: var(--bg-0); padding: 28px 32px; color: var(--fg-1); font-family: var(--font-mono); font-size: 14px; line-height: 1.7; }
+  .term { background: var(--bg-1); border: 2px solid var(--border-1); padding: 16px 20px; border-radius: 0; }
+  .prompt { color: var(--bf-orange); }
+  .cmd { color: var(--fg-1); }
+  .comment { color: var(--fg-3); }
+  .str { color: var(--term-green); }
+  .kw { color: var(--term-purple); }
+  .num { color: var(--term-amber); }
+  .out { color: var(--fg-2); }
+  .ok { color: var(--term-green); }
+  .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--fg-3); margin-bottom: 10px; }
+</style></head>
+<body>
+  <div class="label">## terminal &amp; syntax</div>
+  <div class="term">
+<div><span class="prompt">$</span> <span class="cmd">bf forge build</span> <span class="str">"./pipeline.yml"</span> <span class="kw">--watch</span></div>
+<div class="comment"># resolving forge image · go<span class="num">:1.22</span></div>
+<div class="out">→ pulled 4 layers <span class="ok">[ok]</span></div>
+<div class="out">→ anvil ready · <span class="num">8</span> workers</div>
+<div><span class="prompt">$</span> <span class="cmd">bf stamp</span> <span class="kw">-m</span> <span class="str">"v1"</span></div>
+<div class="ok">✓ stamped @b1f04ge · 6 mounts · pinned</div>
+  </div>
+</body></html>

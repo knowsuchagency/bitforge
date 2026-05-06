@@ -1,0 +1,51 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Cards — Dark Panel</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body { margin:0; padding:0; }
+  body { background: var(--bg-0); padding: 22px; font-family: var(--font-mono); color: var(--fg-1); }
+  .panel {
+    background: var(--bg-1);
+    border: 2px solid var(--border-1);
+    border-radius: 0;
+  }
+  .head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 14px; border-bottom: 2px solid var(--border-1);
+    font-size: 12px; color: var(--fg-3);
+  }
+  .lights { display: flex; gap: 6px; }
+  .l { width: 11px; height: 11px; border-radius: 9999px; }
+  .live { display: flex; align-items: center; gap: 6px; color: var(--term-green); font-weight: 600; font-size: 11px; letter-spacing: 0.1em; }
+  .live .d { width: 8px; height: 8px; border-radius: 9999px; background: var(--term-green); box-shadow: 0 0 8px var(--term-green); }
+  .body { padding: 14px; }
+  .section-label {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--bf-orange); font-weight: 700; margin-bottom: 10px;
+  }
+  .section-label::before { content: ""; width: 8px; height: 8px; background: var(--bf-orange); }
+  .item { display: flex; align-items: center; justify-content: space-between; padding: 6px 0; font-size: 13px; border-bottom: 1px dashed var(--border-1); }
+  .item:last-child { border: none; }
+  .item .l { display: flex; align-items: center; gap: 8px; }
+  .item .dot { width: 6px; height: 6px; border-radius: 9999px; background: var(--term-green); }
+  .meta { color: var(--fg-3); font-size: 11px; }
+</style></head>
+<body>
+  <div class="panel">
+    <div class="head">
+      <div class="lights">
+        <div class="l" style="background:#FF5F57"></div>
+        <div class="l" style="background:#FEBC2E"></div>
+        <div class="l" style="background:#28C840"></div>
+      </div>
+      <div>my-team/documents | main</div>
+      <div class="live"><div class="d"></div>LIVE</div>
+    </div>
+    <div class="body">
+      <div class="section-label">AGENTS · 2 RUNNING</div>
+      <div class="item"><div class="l"><div class="dot"></div>analyst</div><div class="meta">python:3.12 · 64%</div></div>
+      <div class="item"><div class="l"><div class="dot"></div>doc-writer</div><div class="meta">node:22 · 41%</div></div>
+    </div>
+  </div>
+</body></html>

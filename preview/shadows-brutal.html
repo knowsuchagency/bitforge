@@ -1,0 +1,31 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Shadows — Brutal</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body { margin:0; padding:0; }
+  body { background: var(--paper-0);
+    background-image:
+      linear-gradient(rgba(10,9,8,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(10,9,8,0.06) 1px, transparent 1px);
+    background-size: 16px 16px;
+    padding: 32px 32px; font-family: var(--font-mono); color: var(--ink-1); }
+  .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-3); margin-bottom: 18px; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px 18px; }
+  .item { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .card { width: 110px; height: 60px; background: var(--paper-1); border: 2px solid var(--ink-1); }
+  .sm { box-shadow: 4px 4px 0 0 var(--ink-1); }
+  .md { box-shadow: 6px 6px 0 0 var(--ink-1); }
+  .lg { box-shadow: 10px 10px 0 0 var(--ink-1); }
+  .or { box-shadow: 6px 6px 0 0 var(--bf-orange); }
+  .name { font-size: 12px; font-weight: 600; }
+  .px { font-size: 11px; color: var(--ink-3); }
+</style></head>
+<body>
+  <div class="label">## shadows · neobrutalist hard offset</div>
+  <div class="grid">
+    <div class="item"><div class="card sm"></div><div class="name">brutal-sm</div><div class="px">4×4 ink</div></div>
+    <div class="item"><div class="card md"></div><div class="name">brutal</div><div class="px">6×6 ink · default</div></div>
+    <div class="item"><div class="card lg"></div><div class="name">brutal-lg</div><div class="px">10×10 ink</div></div>
+    <div class="item"><div class="card or"></div><div class="name">brutal-orange</div><div class="px">6×6 brand</div></div>
+  </div>
+</body></html>

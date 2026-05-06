@@ -1,0 +1,48 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Cards — Paper Brutal</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body { margin:0; padding:0; }
+  body { background: var(--paper-0);
+    background-image:
+      linear-gradient(rgba(10,9,8,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(10,9,8,0.05) 1px, transparent 1px);
+    background-size: 16px 16px;
+    padding: 28px; font-family: var(--font-mono); color: var(--ink-1); }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .card {
+    background: var(--paper-1);
+    border: 2px solid var(--ink-1);
+    box-shadow: 6px 6px 0 0 var(--ink-1);
+    padding: 14px 16px;
+  }
+  .eb { font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700; display: flex; align-items: center; gap: 6px; }
+  .eb::before { content: ""; width: 8px; height: 8px; }
+  .e-net::before { background: var(--bf-orange); }
+  .e-store::before { background: var(--bf-orange); }
+  .e-comp::before { background: var(--term-green); }
+  .e-net    { color: var(--bf-orange); }
+  .e-store  { color: var(--bf-orange); }
+  .e-comp   { color: var(--term-green-dim); }
+  .title { font-size: 18px; font-weight: 700; margin: 8px 0 4px; }
+  .sub { font-size: 12px; color: var(--ink-3); }
+</style></head>
+<body>
+  <div class="grid">
+    <div class="card">
+      <div class="eb e-net">NETWORK</div>
+      <div class="title">proxied egress</div>
+      <div class="sub">policy-checked · fully logged</div>
+    </div>
+    <div class="card">
+      <div class="eb e-store">STORAGE</div>
+      <div class="title">/sandbox volume</div>
+      <div class="sub">versioned · transactional</div>
+    </div>
+    <div class="card">
+      <div class="eb e-comp">COMPUTE</div>
+      <div class="title">isolated container</div>
+      <div class="sub">capabilities dropped</div>
+    </div>
+  </div>
+</body></html>

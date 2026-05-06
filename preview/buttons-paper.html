@@ -1,0 +1,31 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Buttons — Paper</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body { margin:0; padding:0; }
+  body { background: var(--paper-0); padding: 28px 28px; font-family: var(--font-mono); color: var(--ink-1); }
+  .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-3); margin-bottom: 14px; }
+  .row { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; margin-bottom: 16px; }
+
+  .btn {
+    font-family: var(--font-mono); font-size: 14px; font-weight: 600;
+    padding: 10px 18px; border-radius: 0; cursor: pointer;
+    border: 2px solid var(--ink-1); transition: 80ms ease;
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--paper-1); color: var(--ink-1);
+    box-shadow: 4px 4px 0 0 var(--ink-1);
+  }
+  .btn:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0 0 var(--ink-1); }
+  .btn:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 0 var(--ink-1); }
+  .btn-primary { background: var(--bf-orange); color: #fff; }
+  .btn-secondary { background: var(--paper-1); }
+  .btn-mono { background: var(--ink-1); color: var(--paper-0); }
+</style></head>
+<body>
+  <div class="label">## buttons · paper · brutal-shadow</div>
+  <div class="row">
+    <button class="btn btn-primary">Start Now →</button>
+    <button class="btn btn-secondary">Read the Docs →</button>
+    <button class="btn btn-mono">View Source →</button>
+  </div>
+</body></html>

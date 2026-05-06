@@ -1,0 +1,42 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Bitforge — Brand Wordmark</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body { margin:0; padding:0; }
+  body {
+    background: var(--bg-0);
+    background-image: var(--bg-glow);
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    padding: 32px 48px;
+    font-family: var(--font-mono);
+    color: var(--fg-1);
+  }
+  .wrap { display: flex; flex-direction: column; gap: 18px; align-items: flex-start; }
+  .small {
+    font-family: var(--font-pixel);
+    font-size: 28px;
+    color: var(--fg-1);
+    letter-spacing: -0.01em;
+    display: flex; align-items: baseline; gap: 6px;
+  }
+  .small .pr { color: var(--bf-orange); font-weight: 700; }
+  .big {
+    font-family: var(--font-pixel);
+    font-size: 88px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--fg-1);
+    display: flex; align-items: baseline; gap: 14px;
+  }
+  .big .pr { color: var(--bf-orange); font-size: 76px; font-weight: 700; }
+  .big .pix { color: var(--bf-orange); }
+  .meta { color: var(--fg-3); font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; }
+</style></head>
+<body>
+  <div class="wrap">
+    <div class="meta">## wordmark</div>
+    <div class="small"><span class="pr">&gt;</span>bitforge</div>
+    <div class="big"><span class="pr">&gt;</span>bitforge<span class="pix">_</span></div>
+  </div>
+</body></html>

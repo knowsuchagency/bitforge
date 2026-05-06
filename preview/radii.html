@@ -1,0 +1,23 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Radii</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body { margin:0; padding:0; }
+  body { background: var(--paper-0); padding: 24px 28px; font-family: var(--font-mono); color: var(--ink-1); }
+  .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-3); margin-bottom: 14px; }
+  .grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+  .item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .swatch { width: 80px; height: 64px; background: var(--paper-1); border: 2px solid var(--ink-1); box-shadow: 4px 4px 0 0 var(--ink-1); }
+  .name { font-size: 12px; font-weight: 600; }
+  .px { font-size: 11px; color: var(--ink-3); }
+</style></head>
+<body>
+  <div class="label">## radii · hard edges by default</div>
+  <div class="grid">
+    <div class="item"><div class="swatch" style="border-radius:0"></div><div class="name">--r-0</div><div class="px">0 px · default</div></div>
+    <div class="item"><div class="swatch" style="border-radius:2px"></div><div class="name">--r-1</div><div class="px">2 px · inputs</div></div>
+    <div class="item"><div class="swatch" style="border-radius:4px"></div><div class="name">--r-2</div><div class="px">4 px · chips</div></div>
+    <div class="item"><div class="swatch" style="border-radius:6px"></div><div class="name">--r-3</div><div class="px">6 px · paper</div></div>
+    <div class="item"><div class="swatch" style="border-radius:9999px;width:48px;height:48px"></div><div class="name">--r-pill</div><div class="px">dots only</div></div>
+  </div>
+</body></html>

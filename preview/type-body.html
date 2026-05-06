@@ -1,0 +1,24 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Type — Mono Body</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body { margin:0; padding:0; }
+  body { background: var(--bg-0); padding: 24px 32px; color: var(--fg-1); font-family: var(--font-mono); }
+  .row { display: flex; align-items: baseline; gap: 16px; padding: 6px 0; border-bottom: 1px dashed var(--border-1); }
+  .row:last-child { border-bottom: none; }
+  .meta { width: 150px; color: var(--fg-3); font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; flex: none; }
+  .h1 { font-size: 32px; font-weight: 700; color: var(--fg-1); letter-spacing: -0.02em; }
+  .h2 { font-size: 24px; font-weight: 600; color: var(--fg-1); }
+  .h3 { font-size: 20px; font-weight: 600; color: var(--fg-1); }
+  .body { font-size: 15px; color: var(--fg-2); line-height: 1.7; }
+  .small { font-size: 13px; color: var(--fg-2); }
+  .eb { font-size: 11px; color: var(--fg-3); text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; }
+</style></head>
+<body>
+  <div class="row"><div class="meta">H1 / 32 / 700</div><div class="h1">Loose, but logged.</div></div>
+  <div class="row"><div class="meta">H2 / 24 / 600</div><div class="h2">Three layers, isolated</div></div>
+  <div class="row"><div class="meta">H3 / 20 / 600</div><div class="h3">Reversible by default</div></div>
+  <div class="row"><div class="meta">Body / 15 / 400</div><div class="body">Bitforge turns every build into a stamp you can pull back.</div></div>
+  <div class="row"><div class="meta">Small / 13 / 400</div><div class="small">Free to start · Join the private preview</div></div>
+  <div class="row"><div class="meta">Eyebrow / 11 / 600</div><div class="eb">## WIRE</div></div>
+</body></html>

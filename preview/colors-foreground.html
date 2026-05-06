@@ -1,0 +1,23 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Colors — Foreground</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body { margin:0; padding:0; }
+  body { background: var(--bg-0); padding: 24px 28px; font-family: var(--font-mono); color: var(--fg-1); }
+  .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--fg-3); margin-bottom: 14px; }
+  .stack { display: flex; flex-direction: column; gap: 8px; }
+  .row { display: flex; align-items: center; gap: 14px; padding: 10px 12px; border: 2px solid var(--border-1); background: var(--bg-1); }
+  .chip { width: 36px; height: 36px; flex: none; border: 1px solid var(--border-2); }
+  .name { font-size: 13px; font-weight: 600; width: 80px; }
+  .hex { font-size: 12px; color: var(--fg-3); width: 90px; }
+  .sample { flex: 1; font-size: 14px; }
+</style></head>
+<body>
+  <div class="label">## foreground · text on dark</div>
+  <div class="stack">
+    <div class="row"><div class="chip" style="background:#F5F1EA"></div><div class="name" style="color:#F5F1EA">fg-1</div><div class="hex">#F5F1EA</div><div class="sample" style="color:#F5F1EA">Primary text — headings, important UI</div></div>
+    <div class="row"><div class="chip" style="background:#B8B2A7"></div><div class="name" style="color:#B8B2A7">fg-2</div><div class="hex">#B8B2A7</div><div class="sample" style="color:#B8B2A7">Body paragraphs and standard copy</div></div>
+    <div class="row"><div class="chip" style="background:#6E6A63"></div><div class="name" style="color:#6E6A63">fg-3</div><div class="hex">#6E6A63</div><div class="sample" style="color:#6E6A63">Captions, eyebrow labels, muted</div></div>
+    <div class="row"><div class="chip" style="background:#3A3833"></div><div class="name" style="color:#3A3833">fg-4</div><div class="hex">#3A3833</div><div class="sample" style="color:#3A3833">Disabled · placeholder · ghost</div></div>
+  </div>
+</body></html>

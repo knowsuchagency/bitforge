@@ -1,0 +1,115 @@
+/* bitforge docs / diagram surface — paper neobrutalism */
+:root {
+  --paper-0:     #F2EEE4;
+  --paper-1:     #EAE5D8;
+  --paper-2:     #DCD6C5;
+  --ink-1:       #0A0908;
+  --ink-2:       #2D2A26;
+  --ink-3:       #6E6A63;
+  --bf-orange:   #FF6B1A;
+  --term-green:     #1A8C66;
+  --term-green-bright: #2EE6A8;
+  --term-blue:      #2872CC;
+  --font-mono:  'JetBrains Mono', 'SF Mono', monospace;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--paper-0);
+  background-image:
+    linear-gradient(rgba(10,9,8,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10,9,8,0.06) 1px, transparent 1px);
+  background-size: 16px 16px;
+  color: var(--ink-1);
+  font-family: var(--font-mono);
+  font-size: 15px;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+.docs-container { max-width: 920px; margin: 0 auto; padding: 56px 48px 96px; }
+
+.docs-eyebrow {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em;
+  color: var(--bf-orange); font-weight: 700; margin-bottom: 8px;
+}
+.docs-eyebrow::before { content: "## "; opacity: 0.7; }
+
+.docs-h1 {
+  font-size: 38px; font-weight: 700; letter-spacing: -0.02em;
+  margin: 0 0 22px; line-height: 1.15;
+}
+.docs-h1::before { content: "## "; color: var(--bf-orange); opacity: 0.6; font-weight: 400; }
+
+.docs-h2 {
+  font-size: 22px; font-weight: 700; letter-spacing: -0.01em;
+  margin: 36px 0 14px;
+}
+.docs-h2::before { content: "## "; color: var(--bf-orange); opacity: 0.6; font-weight: 400; }
+
+.docs-p { color: var(--ink-2); margin: 0 0 14px; }
+.docs-p b { color: var(--ink-1); font-weight: 700; }
+
+.docs-code {
+  background: var(--paper-1); border: 2px solid var(--ink-1);
+  padding: 4px 8px; font-size: 0.92em;
+}
+
+/* Paper card with brutal shadow */
+.pcard {
+  background: var(--paper-1);
+  border: 2px solid var(--ink-1);
+  box-shadow: 6px 6px 0 0 var(--ink-1);
+  padding: 16px 18px;
+}
+.pcard-eb {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em;
+  font-weight: 700; margin-bottom: 8px;
+}
+.pcard-eb::before { content: ""; width: 9px; height: 9px; }
+.pcard.network .pcard-eb { color: var(--bf-orange); }
+.pcard.network .pcard-eb::before { background: var(--bf-orange); }
+.pcard.storage .pcard-eb { color: var(--bf-orange); }
+.pcard.storage .pcard-eb::before { background: var(--bf-orange); }
+.pcard.compute .pcard-eb { color: var(--term-green); }
+.pcard.compute .pcard-eb::before { background: var(--term-green-bright); }
+.pcard.sandbox .pcard-eb { color: var(--bf-orange); }
+.pcard.sandbox .pcard-eb::before { background: var(--bf-orange); }
+
+.pcard-title { font-size: 22px; font-weight: 700; letter-spacing: -0.01em; margin: 4px 0 6px; }
+.pcard-sub { font-size: 13px; color: var(--ink-3); }
+
+/* Diagram */
+.diagram {
+  position: relative;
+  background: var(--paper-0);
+  border: 2px solid var(--ink-1);
+  box-shadow: 10px 10px 0 0 var(--ink-1);
+  padding: 36px 36px 28px;
+  margin: 28px 0 36px;
+  background-image:
+    linear-gradient(rgba(10,9,8,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10,9,8,0.06) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+.diagram-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; position: relative; }
+.diagram-arrows {
+  position: relative;
+  height: 80px;
+}
+.diagram-arrows svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.diagram-bottom { display: flex; justify-content: center; }
+.diagram-bottom .pcard { min-width: 280px; }
+
+.pcard-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.pcard-chips .chip {
+  font-size: 11px; padding: 3px 8px;
+  background: var(--paper-2); border: 1.5px solid var(--ink-2);
+  font-weight: 500;
+}
+
+.dot {
+  width: 9px; height: 9px; border-radius: 9999px;
+  display: inline-block; margin-right: 6px;
+}
+.dot.green { background: var(--term-green-bright); box-shadow: 0 0 6px var(--term-green-bright); }

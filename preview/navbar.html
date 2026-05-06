@@ -1,0 +1,44 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Nav Bar</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body { margin:0; padding:0; }
+  body { background: var(--bg-0); padding: 20px 28px; font-family: var(--font-mono); color: var(--fg-1); }
+  .nav { display: flex; align-items: center; justify-content: space-between; }
+  .brand { font-family: var(--font-pixel); font-size: 22px; display: flex; align-items: baseline; gap: 4px; }
+  .brand .t { color: var(--bf-orange); font-weight: 700; }
+  .links { display: flex; align-items: center; gap: 24px; }
+  .links a { color: var(--fg-1); text-decoration: none; font-size: 14px; }
+  .links a:hover { color: var(--bf-orange); }
+  .gh { width: 18px; height: 18px; color: var(--fg-1); }
+  .cta {
+    background: var(--fg-1); color: #0A0908; border: 2px solid var(--fg-1);
+    padding: 9px 20px;
+    font-family: var(--font-mono); font-weight: 600; font-size: 14px;
+    cursor: pointer; border-radius: 0;
+    display: inline-flex; align-items: center; gap: 8px;
+    box-shadow: 4px 4px 0 0 var(--bf-orange-deep);
+    transition: transform 80ms cubic-bezier(0.2,0.7,0.3,1),
+                box-shadow 80ms cubic-bezier(0.2,0.7,0.3,1),
+                background 80ms ease, color 80ms ease, border-color 80ms ease;
+  }
+  .cta:hover {
+    background: var(--bf-orange); color: #0A0908; border-color: var(--bf-orange);
+    box-shadow: 5px 5px 0 0 var(--bf-orange-deep), 0 0 22px rgba(255,107,26,0.35);
+    transform: translate(-1px,-1px);
+  }
+  .cta:active { transform: translate(4px,4px); box-shadow: 0 0 0 0 var(--bf-orange-deep); }
+</style></head>
+<body>
+  <div class="nav">
+    <div class="brand"><span class="t">&gt;</span>bitforge</div>
+    <div class="links">
+      <a href="#">Forge</a>
+      <a href="#">Docs</a>
+      <a href="#">CLI</a>
+      <a href="#"><svg class="gh" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-2.07c-3.2.7-3.87-1.36-3.87-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.76 2.69 1.25 3.34.96.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.27-5.24-5.66 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.16 1.18a11 11 0 0 1 5.76 0c2.2-1.49 3.16-1.18 3.16-1.18.62 1.57.23 2.73.11 3.02.74.8 1.18 1.82 1.18 3.07 0 4.4-2.7 5.36-5.27 5.65.41.36.78 1.05.78 2.13v3.16c0 .31.21.66.79.55C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg></a>
+      <button class="cta">Open the forge →</button>
+    </div>
+  </div>
+</body></html>
+

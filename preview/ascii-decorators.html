@@ -1,0 +1,24 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>ASCII Decorators</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body { margin:0; padding:0; }
+  body { background: var(--bg-0); padding: 24px 28px; font-family: var(--font-mono); color: var(--fg-1); font-size: 14px; line-height: 1.7; }
+  .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--fg-3); margin-bottom: 12px; }
+  .row { display: grid; grid-template-columns: 130px 1fr; gap: 16px; padding: 6px 0; border-bottom: 1px dashed var(--border-1); }
+  .row:last-child { border: none; }
+  .meta { color: var(--fg-3); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; }
+  .or { color: var(--bf-orange); }
+  .gn { color: var(--term-green); }
+  .gy { color: var(--fg-3); }
+</style></head>
+<body>
+  <div class="label">## ascii · the brand's punctuation</div>
+  <div class="row"><div class="meta">prompt prefix</div><div><span class="or">&gt;</span>bitforge</div></div>
+  <div class="row"><div class="meta">heading mark</div><div><span class="or">##</span> Anvil &amp; sandbox</div></div>
+  <div class="row"><div class="meta">shell prompt</div><div><span class="or">$</span> bf forge build <span class="gn">"./pipeline"</span></div></div>
+  <div class="row"><div class="meta">arrow link</div><div>Open the docs <span>→</span></div></div>
+  <div class="row"><div class="meta">comment</div><div><span class="gy"># compiling forge image</span></div></div>
+  <div class="row"><div class="meta">staged diff</div><div><span class="gn">+12</span> <span class="or">~3</span> · 15 files queued</div></div>
+  <div class="row"><div class="meta">forge ref</div><div><span class="or">@b1f04ge</span> · HEAD</div></div>
+</body></html>

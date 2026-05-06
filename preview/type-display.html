@@ -1,0 +1,20 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Type — Display</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body { margin:0; padding:0; }
+  body { background: var(--bg-0); padding: 28px 32px; font-family: var(--font-mono); color: var(--fg-1); }
+  .row { display:flex; align-items:baseline; gap:16px; padding: 8px 0; border-bottom: 1px dashed var(--border-1); }
+  .row:last-child { border-bottom:none; }
+  .meta { width: 130px; color: var(--fg-3); font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; flex: none; }
+  .specimen { font-family: var(--font-pixel); color: var(--fg-1); line-height: 1; letter-spacing: -0.02em; }
+  .s1 { font-size: 56px; }
+  .s2 { font-size: 36px; }
+  .s3 { font-size: 24px; }
+  .or { color: var(--bf-orange); }
+</style></head>
+<body>
+  <div class="row"><div class="meta">Display / 56</div><div class="specimen s1"><span class="or">&gt;</span>bitforge</div></div>
+  <div class="row"><div class="meta">Hero / 36</div><div class="specimen s2">Build it. Ship it. Forge it.</div></div>
+  <div class="row"><div class="meta">Subhero / 24</div><div class="specimen s3">A workbench for AI agents</div></div>
+</body></html>

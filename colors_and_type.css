@@ -1,0 +1,247 @@
+/* =============================================================
+   BITFORGE DESIGN SYSTEM — colors_and_type.css
+   Neobrutalist, developer-focused, 8-bit terminal vibes
+   ============================================================= */
+
+/* ----- FONTS ----- */
+/* Primary terminal mono: JetBrains Mono — used for all body, code, labels, UI */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap');
+/* Display mono (8-bit / pixel-flavored): Departure Mono — used for the wordmark + big display */
+@import url('https://fonts.cdnfonts.com/css/departure-mono');
+/* Fallback humanist (rare, for body copy in long-form docs only) */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  /* ============================================================
+     COLOR — DARK MODE (the canonical Bitforge surface)
+     ============================================================ */
+
+  /* Base / surfaces */
+  --bg-0:        #0A0908;   /* page bg, near-black with a drop of warmth */
+  --bg-1:        #121110;   /* card / panel surface */
+  --bg-2:        #1A1816;   /* raised surface, hovered card */
+  --bg-3:        #232120;   /* input fields, code blocks on dark */
+  --bg-glow:     radial-gradient(ellipse at 30% 40%, rgba(255,107,26,0.18) 0%, rgba(255,107,26,0) 60%);
+
+  /* Foreground / text */
+  --fg-1:        #F5F1EA;   /* primary text on dark — warm off-white */
+  --fg-2:        #B8B2A7;   /* secondary text, body paragraphs */
+  --fg-3:        #6E6A63;   /* tertiary, captions, muted */
+  --fg-4:        #3A3833;   /* disabled / placeholder */
+
+  /* Borders */
+  --border-1:    #2A2825;   /* hairline default border on dark */
+  --border-2:    #3D3A36;   /* stronger border, hovered */
+  --border-3:    #524E48;   /* high-contrast border */
+
+  /* ============================================================
+     COLOR — LIGHT MODE (used for docs, diagrams, paper surfaces)
+     ============================================================ */
+  --paper-0:     #F2EEE4;   /* warm cream, primary light bg */
+  --paper-1:     #EAE5D8;   /* slightly darker, card on paper */
+  --paper-2:     #DCD6C5;   /* raised */
+  --paper-grid:  rgba(10,9,8,0.06);  /* faint grid line on paper */
+  --ink-1:       #0A0908;   /* near-black, primary ink */
+  --ink-2:       #2D2A26;   /* secondary ink */
+  --ink-3:       #6E6A63;   /* tertiary ink */
+
+  /* ============================================================
+     BRAND — the orange. The prompt. The forge.
+     ============================================================ */
+  --bf-orange:       #FF6B1A;   /* primary brand orange, the wordmark */
+  --bf-orange-hot:   #FF8533;   /* hover / lit */
+  --bf-orange-deep:  #D9520A;   /* pressed / shadow */
+  --bf-orange-dim:   #7A3410;   /* muted, used for backgrounds at low opacity */
+
+  /* ============================================================
+     SEMANTIC — terminal palette. Status dots, badges, syntax.
+     ============================================================ */
+  --term-green:    #2EE6A8;   /* success, "live", running */
+  --term-green-dim: #1A8C66;
+  --term-amber:    #F2B33D;   /* warn, in-progress */
+  --term-red:      #FF5A5A;   /* error, destructive */
+  --term-blue:     #5AB0FF;   /* info, gdrive, links */
+  --term-purple:   #C78BFF;   /* secondary highlight, syntax */
+  --term-cyan:     #4FD8E0;   /* tertiary highlight */
+
+  /* Mac traffic lights (used in window chrome) */
+  --tl-red:    #FF5F57;
+  --tl-amber:  #FEBC2E;
+  --tl-green:  #28C840;
+
+  /* ============================================================
+     TYPOGRAPHY — base styles
+     ============================================================ */
+  --font-mono:    'JetBrains Mono', 'SF Mono', 'Menlo', 'Consolas', monospace;
+  --font-pixel:   'Departure Mono', 'JetBrains Mono', monospace;  /* the 8-bit display face */
+  --font-sans:    'Space Grotesk', 'Inter', system-ui, sans-serif; /* fallback only */
+
+  /* Type scale — strict, mono-friendly. Multiples of 4. */
+  --fs-xs:    11px;   /* micro labels, badges, status */
+  --fs-sm:    13px;   /* captions, secondary */
+  --fs-base:  15px;   /* body */
+  --fs-md:    17px;   /* large body, list items */
+  --fs-lg:    20px;   /* h4 / section subhead */
+  --fs-xl:    24px;   /* h3 */
+  --fs-2xl:   32px;   /* h2 */
+  --fs-3xl:   44px;   /* h1 */
+  --fs-4xl:   64px;   /* display */
+  --fs-5xl:   96px;   /* hero wordmark */
+
+  --lh-tight:  1.1;
+  --lh-snug:   1.25;
+  --lh-base:   1.5;
+  --lh-loose:  1.7;
+
+  --tracking-tight:  -0.02em;
+  --tracking-base:   0;
+  --tracking-wide:   0.05em;
+  --tracking-wider:  0.12em;   /* uppercase eyebrow labels */
+
+  /* ============================================================
+     SPACING — 4px base grid, terminal-tight
+     ============================================================ */
+  --s-0:    0px;
+  --s-1:    4px;
+  --s-2:    8px;
+  --s-3:    12px;
+  --s-4:    16px;
+  --s-5:    20px;
+  --s-6:    24px;
+  --s-8:    32px;
+  --s-10:   40px;
+  --s-12:   48px;
+  --s-16:   64px;
+  --s-20:   80px;
+  --s-24:   96px;
+
+  /* ============================================================
+     RADIUS — minimal. Hard edges are the brand.
+     ============================================================ */
+  --r-0:  0px;       /* default. neobrutalism. */
+  --r-1:  2px;       /* barely-rounded, inputs */
+  --r-2:  4px;       /* badges, chips */
+  --r-3:  6px;       /* cards on paper */
+  --r-pill: 9999px;  /* used VERY sparingly — status dots only */
+
+  /* ============================================================
+     BORDERS — thin and confident
+     ============================================================ */
+  --bw-1:  1px;
+  --bw-2:  2px;     /* primary card border */
+  --bw-3:  3px;     /* emphasized/CTA */
+
+  /* ============================================================
+     SHADOWS — neobrutalist hard offset shadows on light;
+     soft glow halos on dark.
+     ============================================================ */
+  --shadow-brutal-sm:  4px 4px 0 0 var(--ink-1);
+  --shadow-brutal:     6px 6px 0 0 var(--ink-1);
+  --shadow-brutal-lg:  10px 10px 0 0 var(--ink-1);
+
+  --shadow-brutal-orange: 6px 6px 0 0 var(--bf-orange);
+
+  /* Dark surface glows — used very sparingly */
+  --glow-orange:  0 0 24px rgba(255,107,26,0.35);
+  --glow-green:   0 0 16px rgba(46,230,168,0.4);
+  --glow-soft:    0 8px 32px rgba(0,0,0,0.5);
+
+  /* ============================================================
+     MOTION — snappy, no bounces. Terminals don't bounce.
+     ============================================================ */
+  --ease-out:   cubic-bezier(0.2, 0.7, 0.3, 1);
+  --ease-in:    cubic-bezier(0.7, 0, 0.8, 0.3);
+  --ease-step:  steps(4, end);   /* 8-bit step animation */
+
+  --dur-fast:   80ms;
+  --dur-base:   160ms;
+  --dur-slow:   320ms;
+}
+
+/* =============================================================
+   SEMANTIC TYPE STYLES
+   ============================================================= */
+
+.h-display,
+h1.display {
+  font-family: var(--font-pixel);
+  font-size: var(--fs-5xl);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  font-weight: 400;
+  color: var(--fg-1);
+}
+
+.h1, h1 {
+  font-family: var(--font-mono);
+  font-size: var(--fs-3xl);
+  line-height: var(--lh-tight);
+  font-weight: 700;
+  letter-spacing: var(--tracking-tight);
+  color: var(--fg-1);
+}
+
+.h2, h2 {
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xl);
+  line-height: var(--lh-snug);
+  font-weight: 600;
+  color: var(--fg-1);
+}
+
+.h3, h3 {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xl);
+  line-height: var(--lh-snug);
+  font-weight: 600;
+  color: var(--fg-1);
+}
+
+.h4, h4 {
+  font-family: var(--font-mono);
+  font-size: var(--fs-lg);
+  line-height: var(--lh-snug);
+  font-weight: 600;
+  color: var(--fg-1);
+}
+
+.body, p {
+  font-family: var(--font-mono);
+  font-size: var(--fs-base);
+  line-height: var(--lh-loose);
+  font-weight: 400;
+  color: var(--fg-2);
+}
+
+.body-sm, small {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-base);
+  color: var(--fg-2);
+}
+
+.eyebrow,
+.label-uppercase {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  font-weight: 600;
+  color: var(--fg-3);
+}
+
+.code,
+code,
+kbd {
+  font-family: var(--font-mono);
+  font-size: 0.95em;
+  background: var(--bg-3);
+  color: var(--fg-1);
+  padding: 2px 6px;
+  border-radius: var(--r-1);
+  border: var(--bw-1) solid var(--border-1);
+}
+
+.prompt::before { content: "$ "; color: var(--bf-orange); }
+.bf-prefix::before { content: ">"; color: var(--bf-orange); margin-right: 0.3em; font-weight: 700; }
+.comment-prefix::before { content: "## "; color: var(--bf-orange); opacity: 0.7; }
