@@ -65,15 +65,15 @@ All brand naming, copywriting, and product framing for Bitforge is original to t
 
 **Shadows**:
 - Paper: `box-shadow: 6px 6px 0 0 ink` (no blur). Classic neobrutalism.
-- Dark: subtle glow halos for hot states only. Never brutal-shadows on dark.
+- Dark: 1px brutalist *outline* at offset (rendered via `::after` pseudo-element so it's surface-agnostic) plus subtle orange glow halos for hot states. The stamp is hollow, not filled.
 
 **Backgrounds**: Solid fills. Dark gets one radial orange glow. Paper gets a 16px grid. No photography. Diagrams *are* the imagery.
 
 **Animation**: Snappy and stepped. `cubic-bezier(0.2, 0.7, 0.3, 1)` for hover/press. `steps(4, end)` on progress bars. Status dots pulse opacity at 1.6s. The wordmark cursor blinks via `steps(2)`. No bounces, slides, or parallax.
 
-**Hover**: Primary buttons brighten + soft orange glow. Secondary outlined buttons swap border to white. Paper buttons translate -1px and shadow grows to 5×5.
+**Hover**: Primary buttons brighten + soft orange glow, and the brutalist outline shifts +1px further. Secondary outlined buttons swap their outline alpha from 0.85 to fully opaque. Paper buttons translate -1px and shadow grows to 5×5.
 
-**Press**: Paper buttons translate +2px and shadow shrinks to 2×2. Dark buttons darken to `--bf-orange-deep`.
+**Press**: Paper buttons translate +2px and shadow shrinks to 2×2. Dark buttons translate +offset (sliding into where the outline was) and the outline fades to 0.
 
 **Radius**: 0 by default. 2px inputs, 4px chips, 6px reserved for paper cards. Pill (`9999px`) is **status dots only**.
 

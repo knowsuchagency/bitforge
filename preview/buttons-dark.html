@@ -10,13 +10,16 @@
 
   /* ============================================================
      Dark-mode neobrutalist shadow language
-     - Hard offset, zero blur (no soft glow on the chrome itself)
-     - Shadow color is a HIGH-CONTRAST stamp:
+     - Offset OUTLINE (1px stroke), zero blur — the stamp is hollow
+     - Outline color is a HIGH-CONTRAST mark:
          primary  -> deep orange (the forge mark, lit from below)
          neutral  -> pale ink (--fg-1 at low alpha) so it's visible on dark
          danger   -> deep red
-     - Press = slide into the shadow:
-         translate(+offset, +offset) and shrink shadow to 0,0
+     - The outline is rendered by a `::after` pseudo-element, transformed
+       into the offset position. This is bg-independent — works on any
+       surface (--bg-0, --bg-1, --bg-2) without a visible seam.
+     - Hover: outline shifts +1px and the orange variant gains a halo glow
+     - Press: button slides into the outline (transform), outline fades
      ============================================================ */
   .btn {
     font-family: var(--font-mono); font-size: 14px; font-weight: 600;
@@ -26,66 +29,86 @@
     border: 2px solid transparent;
     display: inline-flex; align-items: center; gap: 8px;
     position: relative;
+    --btn-brutal-offset: 4px;
     transition: transform 80ms cubic-bezier(0.2,0.7,0.3,1),
                 box-shadow 80ms cubic-bezier(0.2,0.7,0.3,1),
                 background 80ms ease, color 80ms ease, border-color 80ms ease;
     will-change: transform, box-shadow;
   }
+  .btn-primary::after, .btn-secondary::after, .btn-danger::after {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    border-right-color: var(--btn-brutal-color);
+    border-bottom-color: var(--btn-brutal-color);
+    transform: translate(var(--btn-brutal-offset), var(--btn-brutal-offset));
+    pointer-events: none;
+    transition: transform 80ms cubic-bezier(0.2,0.7,0.3,1),
+                opacity 80ms cubic-bezier(0.2,0.7,0.3,1),
+                border-color 80ms ease;
+  }
+  .btn-primary:hover::after, .btn-secondary:hover::after, .btn-danger:hover::after {
+    transform: translate(calc(var(--btn-brutal-offset) + 1px),
+                         calc(var(--btn-brutal-offset) + 1px));
+    border-right-color: var(--btn-brutal-color-hover, var(--btn-brutal-color));
+    border-bottom-color: var(--btn-brutal-color-hover, var(--btn-brutal-color));
+  }
+  .btn-primary:active::after, .btn-secondary:active::after, .btn-danger:active::after {
+    opacity: 0;
+  }
 
   /* PRIMARY · the lit anvil */
   .btn-primary {
+    --btn-brutal-color: var(--bf-orange-deep);
     background: var(--bf-orange);
     color: #0A0908;
     border-color: var(--bf-orange);
-    box-shadow: 4px 4px 0 0 var(--bf-orange-deep);
   }
   .btn-primary:hover {
     background: var(--bf-orange-hot);
     border-color: var(--bf-orange-hot);
-    box-shadow: 5px 5px 0 0 var(--bf-orange-deep),
-                0 0 22px rgba(255,107,26,0.35);
+    box-shadow: 0 0 22px rgba(255,107,26,0.35);
     transform: translate(-1px, -1px);
   }
   .btn-primary:active {
     transform: translate(4px, 4px);
-    box-shadow: 0 0 0 0 var(--bf-orange-deep);
+    box-shadow: none;
   }
 
   /* SECONDARY · pale ink stamp */
   .btn-secondary {
+    --btn-brutal-color: rgba(245,241,234,0.85);
+    --btn-brutal-color-hover: var(--fg-1);
     background: var(--bg-1);
     color: var(--fg-1);
     border-color: var(--fg-1);
-    box-shadow: 4px 4px 0 0 rgba(245,241,234,0.85);
   }
   .btn-secondary:hover {
     background: var(--bg-2);
-    box-shadow: 5px 5px 0 0 var(--fg-1);
     transform: translate(-1px, -1px);
   }
   .btn-secondary:active {
     transform: translate(4px, 4px);
-    box-shadow: 0 0 0 0 var(--fg-1);
   }
 
   /* DANGER · revert */
   .btn-danger {
+    --btn-brutal-color: #8C2520;
     background: var(--bg-1);
     color: var(--term-red, #FF5F57);
     border-color: var(--term-red, #FF5F57);
-    box-shadow: 4px 4px 0 0 #8C2520;
   }
   .btn-danger:hover {
     background: #1A0F0E;
-    box-shadow: 5px 5px 0 0 #8C2520;
     transform: translate(-1px, -1px);
   }
   .btn-danger:active {
     transform: translate(4px, 4px);
-    box-shadow: 0 0 0 0 #8C2520;
   }
 
-  /* GHOST · no shadow, only color shift. The exception that proves the rule. */
+  /* GHOST · no outline, only color shift. The exception that proves the rule. */
   .btn-ghost {
     background: transparent;
     color: var(--fg-2);
@@ -96,14 +119,30 @@
   .btn-ghost:hover { color: var(--fg-1); background: var(--bg-2); }
   .btn-ghost:active { background: var(--bg-3); }
 
-  /* SIZE VARIANTS — shadow scales with button */
-  .btn-lg { padding: 15px 26px; font-size: 15px; box-shadow: 6px 6px 0 0 var(--bf-orange-deep); }
-  .btn-lg:hover { box-shadow: 7px 7px 0 0 var(--bf-orange-deep), 0 0 28px rgba(255,107,26,0.4); }
-  .btn-lg:active { box-shadow: 0 0 0 0 var(--bf-orange-deep); transform: translate(6px,6px); }
+  /* SIZE VARIANTS — outline offset scales with button */
+  .btn-lg { padding: 15px 26px; font-size: 15px; --btn-brutal-offset: 6px; }
+  .btn-lg.btn-primary:hover { box-shadow: 0 0 28px rgba(255,107,26,0.4); }
+  .btn-lg:active { transform: translate(6px,6px); }
 
-  .btn-sm { padding: 6px 12px; font-size: 12px; box-shadow: 3px 3px 0 0 var(--bf-orange-deep); }
-  .btn-sm:hover { box-shadow: 4px 4px 0 0 var(--bf-orange-deep), 0 0 14px rgba(255,107,26,0.3); }
-  .btn-sm:active { box-shadow: 0 0 0 0 var(--bf-orange-deep); transform: translate(3px,3px); }
+  .btn-sm { padding: 6px 12px; font-size: 12px; --btn-brutal-offset: 3px; }
+  .btn-sm.btn-primary:hover { box-shadow: 0 0 14px rgba(255,107,26,0.3); }
+  .btn-sm:active { transform: translate(3px,3px); }
+
+  /* Forced-state classes for the documentation row at the bottom */
+  .btn-primary.is-hover {
+    background: var(--bf-orange-hot);
+    border-color: var(--bf-orange-hot);
+    box-shadow: 0 0 22px rgba(255,107,26,0.35);
+    transform: translate(-1px,-1px);
+  }
+  .btn-primary.is-hover::after {
+    transform: translate(calc(var(--btn-brutal-offset) + 1px),
+                         calc(var(--btn-brutal-offset) + 1px));
+    border-right-color: var(--btn-brutal-color-hover, var(--btn-brutal-color));
+    border-bottom-color: var(--btn-brutal-color-hover, var(--btn-brutal-color));
+  }
+  .btn-primary.is-pressed { transform: translate(4px,4px); box-shadow: none; }
+  .btn-primary.is-pressed::after { opacity: 0; }
 
   .arrow { font-family: var(--font-mono); }
   .demo-state {
@@ -136,11 +175,11 @@
       <span class="cap">rest</span>
     </div>
     <div class="demo-state">
-      <button class="btn btn-primary" style="background:var(--bf-orange-hot);border-color:var(--bf-orange-hot);box-shadow:5px 5px 0 0 var(--bf-orange-deep), 0 0 22px rgba(255,107,26,0.35);transform:translate(-1px,-1px);">Stamp <span class="arrow">→</span></button>
+      <button class="btn btn-primary is-hover">Stamp <span class="arrow">→</span></button>
       <span class="cap">hover</span>
     </div>
     <div class="demo-state">
-      <button class="btn btn-primary" style="transform:translate(4px,4px);box-shadow:none;">Stamp <span class="arrow">→</span></button>
+      <button class="btn btn-primary is-pressed">Stamp <span class="arrow">→</span></button>
       <span class="cap">pressed</span>
     </div>
   </div>
