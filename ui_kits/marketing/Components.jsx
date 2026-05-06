@@ -29,70 +29,46 @@ function Nav() {
   );
 }
 
-function TerminalPanel() {
+function StampLedger() {
+  const stamps = [
+    { hash: '@b1f04ge', when: '2m ago',  subj: 'feat(api): retry budget for vault writes', status: 'live',     pct: 72 },
+    { hash: '@a9c12d1', when: '18m ago', subj: 'fix: drift in worker pool reaper',         status: 'pass'   },
+    { hash: '@93ee0a5', when: '1h ago',  subj: 'refactor: vault adapter signing path',     status: 'pass'   },
+    { hash: '@81bb47c', when: '3h ago',  subj: 'bump runtime to go 1.22',                  status: 'reverted' },
+    { hash: '@74fa2b3', when: '5h ago',  subj: 'docs: forge intro + anvil glossary',       status: 'pass'   },
+    { hash: '@6512d09', when: 'yday',    subj: 'chore: cargo deps refresh',                status: 'pass'   },
+  ];
+  const chip = {
+    live:     { label: 'LIVE',  glyph: '●' },
+    pass:     { label: 'PASS',  glyph: '✓' },
+    reverted: { label: 'REVRT', glyph: '↶' },
+  };
   return (
-    <div className="term-panel">
-      <div className="term-head">
-        <div className="term-lights">
-          <div className="l" style={{ background: '#FF5F57' }}></div>
-          <div className="l" style={{ background: '#FEBC2E' }}></div>
-          <div className="l" style={{ background: '#28C840' }}></div>
-        </div>
-        <div className="term-title">anvil/build-pipeline <span className="sep">|</span> main</div>
-        <div className="term-live"><span className="d"></span>FORGING</div>
+    <div className="ledger">
+      <div className="ledger-head">
+        <span className="t">&gt;</span>
+        <span className="cmd">bitforge stamp ls <span className="flag">--branch main</span></span>
+        <span className="cur">_</span>
       </div>
-      <div className="term-body">
-        <div className="tsection">
-          <div className="tsection-head">
-            <div className="tsection-label">WORKERS</div>
-            <div className="tsection-meta"><b>2</b> active</div>
+      <div className="ledger-rows">
+        {stamps.map((s) => (
+          <div key={s.hash} className={"stamp-row st-" + s.status}>
+            <div className="hash">{s.hash}</div>
+            <div className="when">{s.when}</div>
+            <div className="subj">{s.subj}</div>
+            <div className={"chip c-" + s.status}>
+              <span className="cl">[</span>{chip[s.status].label} <span className="g">{chip[s.status].glyph}</span><span className="cl">]</span>
+            </div>
+            {s.status === 'live'
+              ? <div className="pct">{s.pct}%</div>
+              : <button className="revert" type="button"><span>↶</span> revert</button>}
+            {s.status === 'live' && (
+              <div className="live-bar"><i style={{ width: s.pct + '%' }}/></div>
+            )}
           </div>
-          <div className="agent-row">
-            <div className="name"><span className="dot"></span>compiler</div>
-            <div className="runtime">go:1.22</div>
-            <div className="progress"><i style={{ width: '72%' }}/></div>
-            <div className="pct">72%</div>
-          </div>
-          <div className="agent-row">
-            <div className="name"><span className="dot"></span>packager</div>
-            <div className="runtime">node:22</div>
-            <div className="progress"><i style={{ width: '38%' }}/></div>
-            <div className="pct">38%</div>
-          </div>
-        </div>
-
-        <div className="tsection">
-          <div className="tsection-head">
-            <div className="tsection-label">MOUNTS</div>
-            <div className="tsection-meta"><span style={{ color: 'var(--bf-orange)' }}>@b1f04ge</span> · STAMPED · 4 mounts</div>
-          </div>
-          <div className="fs-row code">
-            <div className="ord">─</div>
-            <div className="path">/src</div>
-            <div className="badge b-github">github</div>
-            <div className="meta">anvil/api</div>
-          </div>
-          <div className="fs-row s3">
-            <div className="ord">─</div>
-            <div className="path">/cache</div>
-            <div className="badge b-s3">s3</div>
-            <div className="meta">2.4k objects · 31 GB</div>
-          </div>
-          <div className="fs-row gdrive">
-            <div className="ord">─</div>
-            <div className="path">/specs</div>
-            <div className="badge b-gdrive">gdrive</div>
-            <div className="meta">design-bay</div>
-          </div>
-          <div className="fs-row local">
-            <div className="ord">─</div>
-            <div className="path">/dist</div>
-            <div className="badge b-local">local</div>
-            <div className="meta"><span style={{ color: 'var(--term-green)' }}>+12</span> <span style={{ color: 'var(--bf-orange)' }}>~3</span> &nbsp; 15 files queued</div>
-          </div>
-          <div className="tsection-foot">every stamp pinned · revertible</div>
-        </div>
+        ))}
       </div>
+      <div className="ledger-foot">every stamp pinned · revertible</div>
     </div>
   );
 }
@@ -116,8 +92,9 @@ function Hero() {
         </div>
         <div className="hero-foot">Free during preview · Bring your own runtime</div>
       </div>
-      <div>
-        <TerminalPanel />
+      <div className="hero-right">
+        <StampLedger />
+        <InstallCommand />
       </div>
     </section>
   );
@@ -130,7 +107,7 @@ function InstallCommand() {
     <div className="install">
       <div className="install-cmd">
         <span className="p">$</span>
-        <span className="cmd">brew install <span className="green">bitforge</span></span>
+        <span className="cmd">npx <span className="green">bitforge</span></span>
         <button className={"copy" + (copied ? ' done' : '')} onClick={onCopy}>{copied ? 'copied' : 'copy'}</button>
       </div>
     </div>
@@ -175,4 +152,4 @@ function Footer() {
   );
 }
 
-Object.assign(window, { Nav, Hero, TerminalPanel, InstallCommand, FeatureRow, Footer });
+Object.assign(window, { Nav, Hero, StampLedger, InstallCommand, FeatureRow, Footer });
