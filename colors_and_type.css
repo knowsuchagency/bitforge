@@ -4,12 +4,12 @@
    ============================================================= */
 
 /* ----- FONTS ----- */
-/* Primary terminal mono: JetBrains Mono — used for all body, code, labels, UI */
+/* Primary UI sans: IBM Plex Sans — used for body, headings, labels, UI */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+/* Mono companion: JetBrains Mono — used for code, terminal, ledger */
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap');
 /* Display mono (8-bit / pixel-flavored): Departure Mono — used for the wordmark + big display */
 @import url('https://fonts.cdnfonts.com/css/departure-mono');
-/* Fallback humanist (rare, for body copy in long-form docs only) */
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 :root {
   /* ============================================================
@@ -72,9 +72,9 @@
   /* ============================================================
      TYPOGRAPHY — base styles
      ============================================================ */
+  --font-sans:    'IBM Plex Sans', 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono:    'JetBrains Mono', 'SF Mono', 'Menlo', 'Consolas', monospace;
   --font-pixel:   'Departure Mono', 'JetBrains Mono', monospace;  /* the 8-bit display face */
-  --font-sans:    'Space Grotesk', 'Inter', system-ui, sans-serif; /* fallback only */
 
   /* Type scale — strict, mono-friendly. Multiples of 4. */
   --fs-xs:    11px;   /* micro labels, badges, status */
@@ -173,7 +173,7 @@ h1.display {
 }
 
 .h1, h1 {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--fs-3xl);
   line-height: var(--lh-tight);
   font-weight: 700;
@@ -182,7 +182,7 @@ h1.display {
 }
 
 .h2, h2 {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--fs-2xl);
   line-height: var(--lh-snug);
   font-weight: 600;
@@ -190,7 +190,7 @@ h1.display {
 }
 
 .h3, h3 {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--fs-xl);
   line-height: var(--lh-snug);
   font-weight: 600;
@@ -198,7 +198,7 @@ h1.display {
 }
 
 .h4, h4 {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--fs-lg);
   line-height: var(--lh-snug);
   font-weight: 600;
@@ -206,7 +206,7 @@ h1.display {
 }
 
 .body, p {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--fs-base);
   line-height: var(--lh-loose);
   font-weight: 400;
@@ -214,7 +214,7 @@ h1.display {
 }
 
 .body-sm, small {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--fs-sm);
   line-height: var(--lh-base);
   color: var(--fg-2);
@@ -222,7 +222,7 @@ h1.display {
 
 .eyebrow,
 .label-uppercase {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--fs-xs);
   text-transform: uppercase;
   letter-spacing: var(--tracking-wider);

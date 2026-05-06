@@ -1,4 +1,7 @@
 /* bitforge.dev marketing site styles */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.cdnfonts.com/css/departure-mono');
 :root {
   --bg-0:        #0A0908;
   --bg-1:        #121110;
@@ -18,6 +21,7 @@
   --term-blue:     #5AB0FF;
   --term-purple:   #C78BFF;
 
+  --font-sans:  'IBM Plex Sans', 'Inter', system-ui, sans-serif;
   --font-mono:  'JetBrains Mono', 'SF Mono', monospace;
   --font-pixel: 'Departure Mono', 'JetBrains Mono', monospace;
 }
@@ -28,7 +32,7 @@ html, body { margin: 0; padding: 0; }
 body {
   background: var(--bg-0);
   color: var(--fg-1);
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 15px;
   line-height: 1.6;
   min-height: 100vh;
@@ -61,7 +65,7 @@ body::before {
 .nav-cta {
   background: var(--fg-1); color: #0A0908; border: 2px solid var(--fg-1);
   padding: 9px 20px;
-  font-family: var(--font-mono); font-weight: 600; font-size: 14px;
+  font-family: var(--font-sans); font-weight: 600; font-size: 14px;
   cursor: pointer; border-radius: 0;
   display: inline-flex; align-items: center; gap: 8px;
   position: relative;
@@ -107,12 +111,12 @@ body::before {
 .hero-wordmark .pix { color: var(--bf-orange); animation: blink 1.2s steps(2) infinite; }
 @keyframes blink { 50% { opacity: 0; } }
 
-.hero-tagline { font-family: var(--font-mono); font-size: 28px; font-weight: 400; line-height: 1.35; color: var(--fg-1); margin: 0 0 28px; }
+.hero-tagline { font-family: var(--font-sans); font-size: 28px; font-weight: 400; line-height: 1.35; color: var(--fg-1); margin: 0 0 28px; }
 .hero-desc { font-size: 15px; color: var(--fg-2); line-height: 1.7; margin: 0 0 36px; }
 .hero-ctas { display: flex; gap: 14px; align-items: center; }
 
 .btn {
-  font-family: var(--font-mono); font-weight: 600; font-size: 15px;
+  font-family: var(--font-sans); font-weight: 600; font-size: 15px;
   padding: 14px 26px; border-radius: 0; cursor: pointer;
   border: 2px solid transparent;
   display: inline-flex; align-items: center; gap: 10px;
