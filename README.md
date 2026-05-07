@@ -4,24 +4,42 @@
 
 A design system for **Bitforge** (`>bitforge`) — a developer-tooling brand for a stamped, sandboxed agent workbench. The brand voice is **neobrutalist with 8-bit terminal vibes**: monospace everywhere, hard edges, ASCII punctuation, terminal greens with a single bright orange accent, hard-offset shadows on cream paper for docs and a warm near-black surface with radial glow for the canonical product.
 
-## Sources
-
-The visual direction was sketched from two reference screenshots provided as inspiration:
-- `uploads/Screenshot 2026-05-06 at 11.04.32 AM.png` — dark-mode hero with terminal panel
-- `uploads/Screenshot 2026-05-06 at 11.04.41 AM.png` — paper neobrutalist architecture diagram
-
-All brand naming, copywriting, and product framing for Bitforge is original to this design system. Visual primitives (orange accent, paper neobrutalism, terminal-panel card) are inspired by the references but applied to a Bitforge-specific concept.
-
 ## Index
 
 | File / folder | What's there |
 |---|---|
 | `colors_and_type.css` | All design tokens — colors, type scale, spacing, radii, shadows, motion. |
+| `preset.json` | shadcn registry-item preset — applies the bitforge tokens to any shadcn project. |
 | `preview/` | 25 spec cards (wordmark, type, color, radii, shadows, components). |
 | `ui_kits/marketing/` | `>bitforge` marketing home — nav, hero, forge terminal, install, features. |
 | `ui_kits/docs/` | Bitforge docs page — three-piece architecture diagram on paper. |
 | `SKILL.md` | Skill manifest for downloading as a packaged design skill. |
 | `uploads/` | Original reference screenshots. |
+
+---
+
+## USING AS A SHADCN PRESET
+
+`preset.json` packages the bitforge tokens as a shadcn [registry-item](https://ui.shadcn.com/schema/registry-item.json) (Tailwind v4). To apply it to any shadcn-initialized project:
+
+```bash
+npx shadcn@latest add https://raw.githubusercontent.com/knowsuchagency/bitforge/main/preset.json
+```
+
+What lands in your project:
+- `:root` / `.dark` CSS variables — `--background`, `--foreground`, `--primary`, `--border`, `--radius`, `--chart-1..5`, etc. mapped to bitforge's paper + dark surfaces.
+- An `@theme inline` block exposing the full bitforge palette as Tailwind utilities — `bg-bf-orange`, `text-term-green`, `shadow-brutal`, `font-pixel`, `ease-out-snappy`, and friends.
+- Default `--radius: 0rem` (neobrutalism is the brand).
+
+**Fonts are not bundled.** The preset declares `font-sans` / `font-mono` / `font-pixel` families but does not load the webfonts. Add the imports to your project's `globals.css`:
+
+```css
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.cdnfonts.com/css/departure-mono');
+```
+
+Prerequisites: a project with `components.json` (run `npx shadcn@latest init` if needed) and Tailwind v4.
 
 ---
 
