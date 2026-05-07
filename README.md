@@ -29,7 +29,8 @@ npx shadcn@latest add https://raw.githubusercontent.com/knowsuchagency/bitforge/
 What lands in your project:
 - `:root` / `.dark` CSS variables — `--background`, `--foreground`, `--primary`, `--border`, `--radius`, `--chart-1..5`, etc. mapped to bitforge's paper + dark surfaces.
 - An `@theme inline` block exposing the full bitforge palette as Tailwind utilities — `bg-bf-orange`, `text-term-green`, `shadow-brutal`, `font-pixel`, `ease-out-snappy`, and friends.
-- Default `--radius: 0rem` (neobrutalism is the brand).
+- Default `--radius: 0rem` (neobrutalism is the brand). `radius-sm/md/lg/xl` cascade off `--radius`, so all shadcn components render flat by default; opt into the bitforge accents via `rounded-bf-input` / `rounded-bf-chip` / `rounded-bf-card`.
+- A dark-mode L-shape stamp shadow on shadcn `<Button>` — the preset targets `[data-slot="button"]` with `bg-primary` / `bg-secondary` / `bg-destructive` and renders the 1px offset L outline via `::after`. `outline`, `ghost`, and `link` variants stay unstamped. No changes to the consumer's `button.tsx` required.
 
 **Fonts are not bundled.** The preset declares `font-sans` / `font-mono` / `font-pixel` families but does not load the webfonts. Add the imports to your project's `globals.css`:
 
